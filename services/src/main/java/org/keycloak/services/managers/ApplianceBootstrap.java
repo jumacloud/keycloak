@@ -18,6 +18,7 @@ package org.keycloak.services.managers;
 
 import org.keycloak.Config;
 import org.keycloak.common.Version;
+import org.keycloak.common.Profile;
 import org.keycloak.common.enums.SslRequired;
 import org.keycloak.models.AdminRoles;
 import org.keycloak.models.Constants;
@@ -86,6 +87,8 @@ public class ApplianceBootstrap {
         realm.setRegistrationEmailAsUsername(false);
 
         session.getContext().setRealm(realm);
+        DefaultKeyProviders.createProviders(realm);
+
 
         return true;
     }
